@@ -1,0 +1,105 @@
+@use '../../styles/abstracts';
+
+.faq {
+    align-items: center;
+    --grid-gutter-x: 20px;
+    flex-direction: row-reverse;
+
+    &__media {
+        height: 100%;
+
+        @include abstracts.screen(xl) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        border-radius: 22px;
+
+        @include abstracts.screen(xl) {
+            width: 80%;
+            max-width: 80%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__content {
+        padding: 30px;
+
+        @include abstracts.screen(md) {
+            margin-top: 10px;
+            padding: 10px;
+        }
+    }
+
+    &__item {
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+    }
+
+    &__group {
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 2.2rem;
+        line-height: 2.86rem;
+        font-weight: 700;
+        font-family: var(--font-family);
+        max-width: calc(100% - 60px);
+
+        & > span {
+            font-size: 3rem;
+            line-height: 3.9rem;
+            font-weight: 700;
+        }
+
+        @include abstracts.screen(sm) {
+            font-size: 1.8rem;
+            line-height: 2.34rem;
+            font-weight: 600;
+        }
+    }
+
+    &__icon {
+        transition: var(--transition-config);
+        rotate: 270deg;
+
+        &.active {
+            rotate: 90deg;
+        }
+    }
+
+    &__accordion {
+        transition: grid-template-rows 500ms;
+        display: grid;
+        grid-template-rows: 0fr;
+
+        > div {
+            overflow: hidden;
+        }
+
+        &.show {
+            grid-template-rows: 1fr;
+        }
+
+        & p {
+            color: var(--text-color);
+            margin-bottom: 0;
+            padding-bottom: 15px;
+        }
+    }
+}

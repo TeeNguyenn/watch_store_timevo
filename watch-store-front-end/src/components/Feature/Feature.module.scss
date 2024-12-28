@@ -1,0 +1,47 @@
+@use '../../styles/abstracts';
+
+.feature {
+    width: var(--s-container-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    &__card {
+        padding: 88px 25px;
+        background-color: var(--white-color);
+        height: 100%;
+        border-radius: 22px;
+
+        @include abstracts.screen(xl) {
+            padding: 38px 25px;
+        }
+    }
+
+    &__img-wrapper {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__title {
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 3.1rem;
+        margin: 20px 0 10px;
+        text-align: center;
+    }
+
+    &__desc {
+        line-height: 2.88rem;
+        text-align: center;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+}

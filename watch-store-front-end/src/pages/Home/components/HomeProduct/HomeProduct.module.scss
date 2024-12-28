@@ -1,0 +1,470 @@
+@use '../../../../styles/abstracts';
+
+.product-detail {
+    &__container {
+        padding: 35px 40px 20px;
+
+        @include abstracts.screen(md) {
+            padding: 26px 15px 15px;
+        }
+    }
+    &__row {
+    }
+
+    &__media {
+        position: relative;
+    }
+
+    &__actions {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    &__actions-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__actions-item {
+        width: 36px;
+        height: 36px;
+        background-color: var(--white-color);
+        border-radius: 50%;
+        box-shadow: 0 0.0625rem 0.125rem 0.0625rem rgba(0, 0, 0, 0.1490196078);
+        transition: var(--transition-config);
+        padding: 0;
+    }
+
+    &__media-wrapper {
+        // padding-left: 40px;
+        // position: sticky;
+        // top: 0;
+        // height: fit-content;
+
+        // @include abstracts.screen(lg) {
+        //     padding: 0 40px;
+        // }
+
+        // @include abstracts.screen(sm) {
+        //     padding: 0;
+        // }
+    }
+
+    &__img-wrapper {
+        border-radius: 22px;
+        overflow: hidden;
+        cursor: zoom-in;
+        position: relative;
+        background-color: var(--white-color);
+
+        & > div {
+            position: absolute;
+        }
+    }
+
+    &__img {
+        display: block;
+        position: absolute;
+        transition: var(--transition-config);
+        max-width: initial;
+        // height: auto !important;
+        // height: 100%;
+    }
+
+    &__img,
+    &__slide {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &__slide-wrapper {
+        padding: 0 5px;
+        position: relative;
+        padding-top: 100%;
+        height: 0;
+        background-color: var(--white-color);
+        border-radius: 8px;
+    }
+
+    &__slide {
+        border-radius: 8px;
+
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        mix-blend-mode: multiply;
+
+        &:hover {
+            border: 1px solid;
+        }
+    }
+
+    &__content {
+        @include abstracts.screen(lg) {
+            padding: 50px 0 0;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 0;
+        }
+    }
+
+    &__title {
+        margin-bottom: 9px;
+        font-size: 4rem;
+        line-height: 6.2rem;
+        font-weight: 700;
+
+        @include abstracts.screen(sm) {
+            font-size: 3rem;
+            line-height: normal;
+            margin: 20px 0;
+        }
+    }
+
+    &__review {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin: 15px 0;
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        color: var(--primary-color);
+        gap: 2px;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__review-quantity {
+        line-height: 2.24rem;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.5rem;
+            line-height: 2.1rem;
+        }
+    }
+
+    &__text {
+        max-width: 620px;
+        line-height: 2.6rem;
+        color: #797979;
+    }
+
+    &__group {
+        margin-bottom: 30px;
+
+        @include abstracts.screen(sm) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    &__label-text,
+    &__color-label {
+        color: var(--text-second-color);
+        text-transform: capitalize;
+        letter-spacing: 0;
+        margin-left: 5px;
+    }
+
+    &__color-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+    }
+
+    &__color-item {
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        border: 1px solid var(--primary-color);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-config);
+
+        &.active,
+        &:hover {
+            border-color: var(--text-color);
+        }
+    }
+
+    &__color-img {
+        object-fit: contain;
+        width: 40px;
+        height: 40px;
+        user-select: none;
+        mix-blend-mode: multiply;
+    }
+
+    &__size-list,
+    &__material-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__option-btn {
+        padding: 10px 22px;
+        border: 1px solid;
+        transition: var(--transition-config);
+        background-color: transparent;
+        font-weight: normal;
+
+        &:hover,
+        &.active {
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+    }
+
+    &__quantity-btn {
+        width: 172px;
+        height: 55px;
+
+        @include abstracts.screen(xl) {
+            width: 142px;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 132px;
+            order: 1;
+        }
+    }
+
+    &__product-form {
+        max-width: 600px;
+
+        @include abstracts.screen(lg) {
+            max-width: 100%;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        max-width: 100%;
+        margin-bottom: 15px;
+
+        @include abstracts.screen(sm) {
+            flex-wrap: wrap;
+            padding-top: 16px;
+        }
+    }
+
+    &__add-btn {
+        height: 55px;
+        flex: 1;
+        padding: 0 33px;
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+
+        @include abstracts.screen(sm) {
+            order: 3;
+            width: 100%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        border: 1px solid;
+
+        @include abstracts.screen(sm) {
+            order: 2;
+        }
+    }
+
+    &__buy-btn {
+        width: 100%;
+        background-color: var(--text-color);
+        height: 55px;
+        padding: 0 33px;
+        font-weight: 600;
+        margin-bottom: 25px;
+
+        &:hover {
+            background-color: var(--primary-color);
+        }
+    }
+
+    &__share-btn {
+        padding: 0;
+        gap: 10px;
+        font-weight: 500;
+    }
+
+    &__section {
+        margin: 30px 0;
+    }
+
+    &__delivery {
+        margin-top: 40px;
+
+        > svg {
+            vertical-align: middle;
+        }
+    }
+
+    &__delivery-label,
+    &__shipping-label {
+        margin: 0 4px 0 10px;
+        font-weight: 500;
+        color: var(--caption-color);
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 2.52rem;
+        }
+    }
+
+    &__delivery-desc,
+    &__shipping-desc {
+        color: var(--caption-color);
+        font-weight: 500;
+        line-height: 2.88rem;
+
+        & > strong {
+            color: var(--text-color);
+        }
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 2.52rem;
+        }
+    }
+
+    &__shipping {
+        & > svg {
+            vertical-align: middle;
+        }
+    }
+
+    &__payment {
+        margin: 40px 0;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+    }
+
+    &__payment-label {
+        padding: 0 15px;
+        line-height: 2.88rem;
+    }
+
+    &__payment-list {
+        padding: 10px 20px 30px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @include abstracts.screen(sm) {
+            gap: 10px;
+        }
+    }
+
+    &__payment-item {
+        & > svg {
+            @include abstracts.screen(xl) {
+                width: 40px;
+                height: 34px;
+            }
+            @include abstracts.screen(sm) {
+                width: 30px;
+                height: 34px;
+            }
+        }
+    }
+
+    &__wrapper {
+        margin-bottom: 15px;
+        border-radius: 40px;
+        background-color: var(--white-color);
+        transition: var(--transition-config);
+        height: fit-content;
+    }
+
+    &__heading-wrapper {
+        padding: 20px 35px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        @include abstracts.screen(sm) {
+            padding: 16px 20px;
+        }
+    }
+
+    &__heading {
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: 1;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.8rem;
+            line-height: 2.5rem;
+            padding-right: 40px;
+        }
+    }
+
+    &__heading-btn {
+        flex-shrink: 0;
+        width: 39px;
+        height: 39px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid;
+        rotate: 90deg;
+        transition: var(--transition-config);
+
+        &.active {
+            rotate: 0deg;
+        }
+    }
+
+    &__inner {
+        // "The simple trick to transition from height 0 to auto with CSS"
+        // "No padding to inner element"
+
+        transition: grid-template-rows 500ms;
+        display: grid;
+        grid-template-rows: 0fr;
+
+        > div {
+            overflow: hidden;
+        }
+
+        &.show {
+            grid-template-rows: 1fr;
+        }
+    }
+
+    &__body {
+        padding: 0 35px 30px;
+    }
+}

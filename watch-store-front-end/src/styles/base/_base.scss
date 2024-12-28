@@ -1,0 +1,746 @@
+@use '../abstracts';
+
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import './keyframe';
+
+:root {
+    --primary-color: #b299d2;
+    --primary-second-color: #7c4eb9;
+    --white-color: #fff;
+    --text-color: #000;
+    --text-second-color: #000000b3;
+    --caption-color: #797979;
+    --background-color: #eeeeee;
+    --header-height: 78px;
+    --header-background-color: #000;
+    --font-family: 'Rubik', sans-serif;
+    --transition-config: all 0.3s linear;
+    --s-container-width: 1280px;
+    --sidebar-width: 400px;
+    --border-color: #e0e0e0;
+}
+
+@media (max-width: 1280px) {
+    :root {
+        --s-container-width: 100%;
+    }
+}
+
+@media (max-width: 1198px) {
+    :root {
+        --s-container-width: 1040px;
+    }
+}
+
+@media (max-width: 1040px) {
+    :root {
+        --s-container-width: 100%;
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+
+    &.hide-scroll {
+        overflow: hidden;
+        padding-right: 5px;
+        background-color: #f5f5f5;
+        margin-right: -1px;
+
+        @include abstracts.screen(xl) {
+            margin-right: 0;
+            padding-right: 0;
+        }
+    }
+
+    // Custom Tooltip
+    .tippy-box {
+        background-color: var(--primary-color);
+        font-size: 1.2rem;
+        color: var(--white-color);
+        line-height: normal;
+    }
+
+    .tippy-content {
+        padding: 3px 9px;
+    }
+
+    .tippy-arrow {
+        color: var(--primary-color);
+    }
+
+    .tippy-box[data-placement^='top'] > .tippy-arrow:before {
+        border-width: 10px 8px 0;
+    }
+}
+
+// Custom Tippy Shop Card
+body .tippy-box.card-color-tooltip {
+    background-color: var(--text-color);
+    border-radius: 4px;
+    box-shadow: #63636333 0 2px 8px;
+    text-transform: capitalize;
+
+    .tippy-arrow {
+        color: var(--text-color);
+    }
+}
+
+// Custom Tippy Shop Product Icon Card Sidebar
+body .tippy-box.card-popup-product-icon {
+    background-color: var(--text-color);
+    border-radius: 4px;
+    box-shadow: #63636333 0 2px 8px;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    .tippy-content {
+        padding: 8px;
+    }
+
+    .tippy-arrow {
+        color: var(--text-color);
+    }
+}
+
+.slider-container *:focus-visible,
+img:focus-visible {
+    outline: none;
+    border: none;
+}
+
+// Custom slick slider - slide show
+.sidebar-card-slider .slider-container:hover .slick-arrow {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.sidebar-card-slider .slick-arrow {
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-color);
+    color: var(--white-color);
+    border-radius: 50%;
+    z-index: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-config);
+
+    &:hover {
+        background-color: var(--primary-color);
+    }
+
+    &::before {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 54%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-left: 2px solid var(--white-color);
+        border-bottom: 2px solid var(--white-color);
+        rotate: 45deg;
+
+        // @include abstracts.screen(sm) {
+        //     top: 56%;
+        //     left: 38%;
+        // }
+    }
+}
+
+.sidebar-card-slider .slick-prev {
+    left: 0;
+    top: 56%;
+    transform: translateX(-30%);
+    opacity: 0;
+}
+
+.sidebar-card-slider .slick-next {
+    right: 0;
+    top: 56%;
+    transform: translateX(30%);
+    opacity: 0;
+
+    &::after {
+        rotate: 225deg;
+        top: 8%;
+        left: 26%;
+
+        // @include abstracts.screen(sm) {
+        //     left: 26%;
+        //     top: 8%;
+        // }
+    }
+}
+
+// Custom slick slider - slide show
+.slide-show-header .slick-slide.slick-active img {
+    animation: ZoomInImage 5s;
+    transition: all 5s !important;
+}
+
+.slide-show-header .slick-slide.slick-active .banner-heading {
+    opacity: 1;
+    animation: FadeInUp 1.5s ease both 0.1s;
+}
+
+.slide-show-header .slick-slide.slick-active .banner-text {
+    opacity: 1;
+    animation: FadeInUp 1.5s ease both 0.6s;
+}
+
+.slide-show-header .slick-slide.slick-active .banner-btn {
+    opacity: 1;
+    animation: FadeInUp 1.5s ease both 1.2s;
+}
+
+//Custom slick slider - product detail
+.product-detail-slider .slick-slider:first-child .slick-list {
+    margin-bottom: 10px;
+}
+
+.product-detail-slider .slick-slider:last-child {
+    margin: 0 5px 0;
+}
+
+.product-detail-slider .slick-slider:first-child .slick-arrow {
+    width: 36px;
+    height: 36px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    box-shadow: 0 0.0625rem 0.125rem 0.0625rem #00000026;
+    transition: var(--transition-config);
+
+    // @include abstracts.screen(sm) {
+    //     width: 25px;
+    //     height: 25px;
+    // }
+
+    &::before {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 53%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        border-left: 2px solid var(--text-color);
+        border-bottom: 2px solid var(--text-color);
+        rotate: 45deg;
+
+        // @include abstracts.screen(sm) {
+        //     top: 56%;
+        //     left: 38%;
+        // }
+    }
+}
+
+.product-detail-slider .slick-slider:first-child .slick-prev {
+    left: 32px;
+    z-index: 1;
+}
+
+.product-detail-slider .slick-slider:first-child .slick-next {
+    right: 32px;
+
+    &::after {
+        rotate: 225deg;
+        top: 18%;
+        left: 32%;
+
+        // @include abstracts.screen(sm) {
+        //     left: 26%;
+        //     top: 8%;
+        // }
+    }
+}
+
+.product-detail-slider .slick-slider:last-child .slick-list {
+    margin: 0 -10px;
+}
+
+.product-detail-slider .slick-slider:last-child .slick-track {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto 0 0;
+    transform: translate3d(0px, 0px, 0px) !important;
+}
+
+.product-detail-slider .slick-slider:last-child .slick-current img {
+    border: 1px solid;
+}
+
+.product-detail-slider .slider-container *:focus-visible {
+    outline: none;
+    border: none;
+}
+
+// Custom slick slider - recommend product ( detail page)
+.recommend-product-slider .slick-slider {
+    margin: 0 !important;
+}
+.recommend-product-slider .slick-list {
+    margin: 0 -10px !important;
+
+    @include abstracts.screen(sm) {
+        margin: 0 -5px !important;
+    }
+}
+
+.recommend-product-slider .slick-slide {
+    padding: 0 10px;
+    border: none;
+
+    @include abstracts.screen(sm) {
+        padding: 0 5px;
+    }
+}
+
+.recommend-product-slider .slick-slide img {
+    border: none !important;
+}
+
+// Custom slick slider - home product
+.home-product-slider .slick-slider:first-child .slick-list {
+    margin-bottom: 10px;
+
+    @include abstracts.screen(xxl) {
+        margin-bottom: 14px;
+    }
+}
+
+.home-product-slider .slick-slider:last-child .slick-slide.slick-current img {
+    transition: var(--transition-config);
+
+    border: 1px solid;
+}
+
+.home-product-slider .slick-slider:last-child .slick-list {
+    margin: 0 -5px;
+    border-radius: 20px;
+
+    @include abstracts.screen(md) {
+        margin: 0 45px;
+    }
+
+    @include abstracts.screen(sm) {
+        margin: 0 38px;
+    }
+}
+
+.home-product-slider .slick-slider:last-child .slick-track {
+    display: flex;
+    gap: 10px;
+}
+
+.home-product-slider .slick-slider:last-child .slick-slide img {
+    border-radius: 20px;
+}
+
+.home-product-slider .slick-slider:last-child .slick-arrow {
+    width: 34px;
+    height: 34px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: var(--transition-config);
+
+    @include abstracts.screen(sm) {
+        width: 25px;
+        height: 25px;
+    }
+
+    &:hover {
+        background-color: var(--text-color);
+    }
+
+    &::before {
+        display: none;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 53%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        width: 8px;
+        height: 8px;
+        border-left: 3px solid var(--white-color);
+        border-bottom: 3px solid var(--white-color);
+        rotate: 45deg;
+
+        @include abstracts.screen(sm) {
+            top: 56%;
+            left: 38%;
+        }
+    }
+}
+
+.home-product-slider .slick-slider:last-child .slick-prev {
+    left: 0;
+}
+
+.home-product-slider .slick-slider:last-child .slick-next {
+    right: 0;
+
+    &::after {
+        rotate: 225deg;
+        top: 18%;
+        left: 37%;
+
+        @include abstracts.screen(sm) {
+            left: 26%;
+            top: 8%;
+        }
+    }
+}
+
+.home-product-slider .slider-container *:focus-visible {
+    outline: none;
+    border: none;
+}
+
+//Custom slick slider - Shop Sidebar Card
+.sidebar-card-slide .slider-container *:focus-visible {
+    outline: none;
+    border: none;
+}
+
+// Custom slick slider - Testimonial
+.testimonial-slide .slick-list {
+    cursor: grab;
+    margin: 0 -10px;
+}
+
+.testimonial-slide .slick-slide {
+    padding: 0 10px;
+}
+
+// Custom slick slider - feature
+.feature-slider .slick-list {
+    cursor: grab;
+    margin: 0 -10px;
+}
+
+.feature-slider .slick-slide {
+    padding: 0 10px;
+}
+
+// Custom slick slider - News
+.news-slide .slick-list {
+    cursor: grab;
+    margin: 0 -15px;
+
+    @include abstracts.screen(md) {
+        margin: 0 -5px;
+    }
+}
+
+.news-slide .slick-dots {
+    bottom: -42px;
+}
+
+//Custom slick slider - Search modal
+.search-modal-slider .slick-list {
+    margin: -10px;
+}
+
+.news-slide .slick-dots li,
+.news-slide .slick-dots li button {
+    width: 5px;
+    height: 3px;
+    border-radius: 10px;
+    transition: var(--transition-config);
+    background-color: var(--text-color);
+    opacity: 1;
+    margin: 0 2px;
+    padding: 0;
+}
+
+.news-slide .slick-dots li button::before {
+    content: '';
+    display: none;
+}
+
+.news-slide .slick-dots li.slick-active {
+    width: 25px;
+}
+
+// Custom slider - about
+
+.about-slider .slick-slider:last-child {
+    position: absolute;
+    top: 18%;
+    right: 48%;
+    width: 120px !important;
+
+    @include abstracts.screen(lg) {
+        top: 4%;
+        right: 8%;
+    }
+
+    @include abstracts.screen(md) {
+        position: initial;
+        width: 300px !important;
+        margin: 20px auto 0;
+    }
+}
+
+.about-slider .slick-slider:last-child .slick-track {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include abstracts.screen(md) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.about-slider .slick-slider:last-child .slick-track > div {
+    width: auto !important;
+    margin-right: auto;
+}
+
+.about-slider .slick-slider:last-child .slick-current img {
+    border: 4px solid var(--primary-color);
+}
+
+.about-team .slick-list {
+    margin: 0 -15px;
+
+    @include abstracts.screen(xl) {
+        margin: 0 -10px;
+    }
+}
+// =========================
+html *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+html *::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 5px;
+    background-color: rgba($color: #000000, $alpha: 0);
+    transition: var(--transition-config);
+    border-radius: 10px;
+}
+html *::-webkit-scrollbar-track {
+    background-color: rgba($color: #000000, $alpha: 0);
+    transition: var(--transition-config);
+}
+
+html *:hover::-webkit-scrollbar-thumb {
+    background-color: #00000026;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+button,
+input,
+select,
+area {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+}
+
+img {
+    object-fit: cover;
+    height: auto;
+    max-width: 100%;
+    display: flex;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
+}
+
+// remove arrow up and arrow dow
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+::selection {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+// Embed fonts
+@font-face {
+    font-family: Rubik;
+    src: url('/assets/fonts/rubik_n4.cc9422f2e84f41ed4707ebaebe66b6de39308266.woff2');
+}
+
+// editor
+.content-box {
+    font-size: 1.6rem;
+    line-height: 2.88rem;
+
+    @include abstracts.screen(md) {
+        font-size: 1.5rem;
+        line-height: 2.7rem;
+    }
+
+    p {
+        margin: 16px 0;
+        color: var(--caption-color);
+
+        @include abstracts.screen(md) {
+            margin: 15px 0;
+        }
+    }
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    strong {
+        color: var(--text-color);
+        padding-right: 4px;
+    }
+
+    ul {
+        color: var(--caption-color);
+        padding-left: 20px;
+        margin: 16px 0;
+
+        @include abstracts.screen(md) {
+            margin: 15px 0;
+        }
+    }
+}
+
+// Common
+
+#mobile-toolbar-footer.hide {
+    display: none !important;
+}
+
+.text-one-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.line-clamp.line-clamp-1 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+
+.line-clamp.line-clamp-3 {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
+.line-clamp.line-clamp-4 {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+}
+
+.line-clamp.line-clamp-5 {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+}
+
+.line-clamp.line-clamp-6 {
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+}
+
+.sub-heading {
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    line-height: 2.16rem;
+    margin-bottom: 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: 4.2rem;
+    line-height: 5.46rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.desc {
+    line-height: 2.88rem;
+    color: var(--text-color);
+}
+
+.disabled {
+    opacity: 0.6 !important;
+    cursor: default !important;
+}
+
+.primary-hover {
+    transition: var(--transition-config);
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+// Custom antd
+
+.ant-spin {
+    height: 300px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.ant-spin-dot-holder {
+    color: #7c4eb9 !important;
+}

@@ -1,0 +1,105 @@
+@use '../../styles/abstracts';
+
+.profile {
+    padding: 32px 50px 0;
+    margin-bottom: 64px;
+
+    @include abstracts.screen(xxl) {
+        padding: 32px 0 0;
+    }
+
+    // @include abstracts.screen(xl) {
+    //     padding: 32px 20px 0;
+    // }
+
+    // @include abstracts.screen(sm) {
+    //     padding: 32px 0 0;
+    // }
+
+    &__nav-list {
+        margin: 40px 0 16px;
+        padding-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        @include abstracts.screen(sm) {
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                visibility: hidden;
+                -webkit-appearance: none;
+                width: 6px;
+                height: 6px;
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+    }
+
+    &__nav-item {
+        transition: var(--transition-config);
+        border-bottom: 2px solid transparent;
+
+        &:hover,
+        &.active {
+            border-color: var(--primary-color);
+        }
+    }
+
+    &__nav-item:hover &__nav-btn,
+    &__nav-item.active &__nav-btn {
+        color: var(--primary-color);
+    }
+
+    &__nav-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 8px 0;
+        gap: 4px;
+    }
+
+    &__nav-btn,
+    &__nav-count {
+        padding: 0;
+        line-height: 2.88rem;
+    }
+
+    &__nav-btn {
+        font-weight: 600;
+
+        @include abstracts.screen(sm) {
+            font-weight: 500;
+            white-space: nowrap;
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+
+            & > svg {
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+
+    &__nav-count {
+        color: var(--text-second-color);
+        font-size: 1.5rem;
+        line-height: 2.7rem;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 2.6rem;
+        }
+    }
+
+    &__tab-content {
+        visibility: hidden;
+        opacity: 0;
+        display: none;
+
+        &.show {
+            visibility: visible;
+            opacity: 1;
+            display: block;
+        }
+    }
+}

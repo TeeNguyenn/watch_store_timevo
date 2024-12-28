@@ -1,0 +1,191 @@
+@use '../../../../styles/abstracts';
+
+.card {
+    &:hover &__thumbnail {
+        scale: 1.1;
+    }
+
+    &:hover &__product-icon-top {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    &:hover &__product-icon-bottom {
+        transform: translatey(0);
+        opacity: 1;
+    }
+
+    &__media {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+    }
+
+    &__popup {
+        position: absolute;
+        inset: 0;
+        padding: 10px;
+    }
+
+    &__product-icon-top {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-config);
+        transform: translateX(20%);
+        opacity: 0;
+    }
+
+    &__icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--text-color);
+        border-radius: 50%;
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    &__icon-wrapper:hover &__icon {
+        color: var(--text-color);
+    }
+
+    &__icon {
+        transition: var(--transition-config);
+        color: var(--primary-color);
+    }
+
+    &__product-icon-bottom {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        margin: 20px 0 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: var(--transition-config);
+        transform: translateY(20%);
+        opacity: 0;
+    }
+
+    &__btn {
+        width: 100%;
+        height: 53px;
+        padding: 0 30px;
+        transition: var(--transition-config);
+
+        &:hover {
+            background-color: var(--text-color);
+            border-color: var(--text-color);
+        }
+    }
+
+    &__thumbnail {
+        transition: var(--transition-config);
+        display: flex;
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        outline: none;
+        transition: var(--transition-config);
+        mix-blend-mode: multiply;
+    }
+
+    &__content {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__caption {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+        letter-spacing: 0.13rem;
+    }
+
+    &__heading {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 2.6rem;
+        text-align: center;
+        color: var(--text-color);
+        transition: var(--transition-config);
+        margin-bottom: 9px;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    &__price-container {
+        margin: 15px 0 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+
+        // @include abstracts.screen(xxl) {
+        //     flex-direction: column;
+        // }
+    }
+
+    &__price-regular {
+        font-weight: 500;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__price-old {
+        color: var(--caption-color);
+        text-decoration: line-through;
+        font-size: 1.4rem;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__stars {
+        height: 17px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        color: #f2b500;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    &__colors {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+    }
+
+    &__color-tooltip {
+        background-color: var(--text-color) !important;
+        border-radius: 4px !important;
+        box-shadow: #63636333 0 2px 8px !important;
+        text-transform: capitalize !important;
+
+        .tippy-arrow {
+            color: var(--text-color) !important;
+        }
+    }
+}

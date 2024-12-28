@@ -1,0 +1,29 @@
+.detail {
+
+    &__order, &__wishlist, &__review {
+        padding: 0 30px 40px;
+    }
+
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 24px;
+    }
+
+    &__order-inner  * {
+        font-size: 1.4rem;
+    }
+
+    &__wishlist-inner * {
+        font-size: 1.4rem;
+    }
+
+    &__reviews-inner * {
+        font-size: 1.4rem;
+    }
+
+    
+
+    &__review {
+        padding-bottom: 60px;
+    }
+}

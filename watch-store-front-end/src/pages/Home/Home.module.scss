@@ -1,0 +1,9 @@
+.full-width {
+    min-height: 3000px;
+
+    .container-s {
+        width: var(--s-container-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

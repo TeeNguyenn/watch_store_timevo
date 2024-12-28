@@ -1,0 +1,28 @@
+@use '../../styles/abstracts';
+
+.badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+
+    padding: 7px 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: var(--transition-config);
+    border-radius: 16px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    background: var(--primary-color);
+    color: var(--white-color);
+    border: transparent;
+    line-height: 1;
+    text-align: center;
+
+    @include abstracts.screen(sm) {
+        top: 10px;
+        left: 12px;
+        padding: 6px 8px;
+        font-size: 1rem;
+    }
+}

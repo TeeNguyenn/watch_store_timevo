@@ -1,0 +1,135 @@
+@use '../../styles/abstracts';
+
+.contact {
+    width: var(--s-container-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    &__content {
+        padding: 32px 40px 100px;
+
+        @include abstracts.screen(md) {
+            padding: 24px 15px 75px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 16px 15px 50px;
+        }
+    }
+
+    &__inner {
+        padding: 80px 40px 40px;
+        background-color: var(--white-color);
+        border-radius: 30px;
+
+        @include abstracts.screen(xl) {
+            padding: 40px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 30px;
+        }
+    }
+
+    &__row {
+        align-items: center;
+        justify-content: space-between;
+        --grid-gutter-x: 0;
+
+        @include abstracts.screen(xl) {
+            flex-direction: column-reverse;
+        }
+
+        & > div {
+            width: calc(50% - 2vw);
+
+            @include abstracts.screen(xl) {
+                width: 100%;
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    &__form {
+        & > div {
+            @include abstracts.screen(xl) {
+                margin-bottom: 50px;
+            }
+
+            @include abstracts.screen(lg) {
+                margin-bottom: 30px;
+            }
+        }
+
+        & > div * {
+            text-align: left;
+
+            @include abstracts.screen(xl) {
+                margin-left: 0;
+            }
+        }
+
+        & form button {
+            @include abstracts.screen(lg) {
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__map {
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    &__body {
+        margin: 50px 0 50px 15px;
+        list-style: none;
+        max-width: 460px;
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        color: var(--primary-color);
+    }
+
+    &__item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    &__item:not(:first-child) &__contact-text:hover {
+        color: var(--primary-color);
+    }
+
+    &__contact-text {
+        color: var(--text-color);
+        line-height: 2.88rem;
+        transition: var(--transition-config);
+        font-family: var(--font-family);
+
+        @include abstracts.screen(sm) {
+            font-style: 1.5rem;
+        }
+    }
+
+    &__feature {
+        padding: 0 40px 40px;
+
+        @include abstracts.screen(lg) {
+            padding: 0 40px 20px;
+        }
+
+        @include abstracts.screen(md) {
+            padding: 0 15px 20px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 0 15px 10px;
+        }
+    }
+}

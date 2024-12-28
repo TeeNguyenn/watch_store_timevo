@@ -1,0 +1,405 @@
+@use '../../styles/abstracts';
+@import '../../styles/base/keyframe';
+
+.container {
+    width: var(--s-container-width);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about {
+    width: var(--s-container-width);
+    margin: 0 auto;
+
+    &__top {
+        padding: 0 40px 52px;
+        text-align: center;
+
+        @include abstracts.screen(lg) {
+            padding: 0 0 52px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        @include abstracts.screen(md) {
+            margin: 0 15px;
+            padding: 0 0 39px;
+            max-width: 100%;
+        }
+    }
+
+    &__title {
+        font-size: 4.8rem;
+        font-weight: 700;
+        line-height: 6.24rem;
+
+        @include abstracts.screen(md) {
+            font-size: 3.2rem;
+            line-height: 4.16rem;
+        }
+    }
+
+    &__desc {
+        margin-top: 20px;
+        line-height: 2.88rem;
+        font-size: 1.6rem;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__explore-btn {
+        margin-top: 30px;
+        height: 55px;
+        padding: 0 33px;
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+    }
+
+    &__slider {
+        padding: 70px 40px;
+        position: relative;
+
+        @include abstracts.screen(xl) {
+            padding: 35px 40px;
+        }
+
+        @include abstracts.screen(lg) {
+            padding: 35px 40px 0;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 18px 15px;
+        }
+    }
+
+    &__inner {
+        display: flex !important;
+        --grid-gutter-x: 0;
+    }
+
+    &__img-wrapper {
+        height: 600px;
+
+        @include abstracts.screen(md) {
+            display: none;
+        }
+    }
+
+    &__main-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 22px;
+        transition: var(--transition-config);
+    }
+
+    &__slider-content {
+        padding-left: 130px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        @include abstracts.screen(xl) {
+            padding-left: 65px;
+        }
+
+        @include abstracts.screen(lg) {
+            padding: 30px 0 0;
+        }
+    }
+
+    &__slider-heading {
+        font-size: 2.72rem;
+        font-weight: 700;
+        line-height: 3.536rem;
+        margin-bottom: 18px;
+
+        @include abstracts.screen(md) {
+            font-size: 2rem;
+            line-height: 1.5;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.8rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+    }
+
+    &__slider-desc {
+        line-height: 2.88rem;
+
+        @include abstracts.screen(sm) {
+            text-align: center;
+        }
+    }
+
+    &__slider-btn {
+        margin-top: 30px;
+        padding: 0 33px;
+        height: 55px;
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+
+        @include abstracts.screen(sm) {
+            margin: 30px auto 0;
+        }
+    }
+
+    &__slide-wrapper {
+        width: 120px !important;
+        height: 120px !important;
+
+        @include abstracts.screen(md) {
+            width: 50px !important;
+            height: 50px !important;
+        }
+    }
+
+    &__slide-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 4px solid transparent;
+        transition: var(--transition-config);
+
+        &:hover {
+            scale: 0.95;
+        }
+    }
+
+    &__feature {
+        padding: 72px 40px 60px !important;
+
+        @include abstracts.screen(xl) {
+            padding: 36px 40px 30px !important;
+        }
+
+        @include abstracts.screen(md) {
+            padding: 36px 15px 30px !important;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 18px 15px 15px !important;
+        }
+    }
+
+    &__faq {
+        padding: 48px 40px;
+
+        @include abstracts.screen(md) {
+            padding: 36px 15px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 24px 15px;
+        }
+    }
+
+    &__faq-top {
+        margin-bottom: 50px;
+
+        @include abstracts.screen(md) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__faq-title {
+        margin-bottom: 10px;
+        font-size: 4.8rem;
+        line-height: 6.24rem;
+        font-weight: 700;
+        text-align: center;
+
+        @include abstracts.screen(md) {
+            font-size: 3.2rem;
+            line-height: 4.16rem;
+        }
+
+        @include abstracts.screen(sm) {
+            font-size: 2.8rem;
+            line-height: 3.64rem;
+        }
+    }
+
+    &__faq-desc {
+        line-height: 2.88rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__banners {
+        padding: 60px 40px 56px;
+
+        @include abstracts.screen(md) {
+            padding: 48px 15px 42px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 32px 15px 28px;
+            --grid-gutter-y: 15px;
+        }
+    }
+
+    &__banner {
+        height: 490px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(0deg, #000, #0000);
+            opacity: 0.5;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+            border-radius: 22px;
+            transition: var(--transition-config);
+        }
+
+        @include abstracts.screen(xl) {
+            height: 440px;
+        }
+    }
+
+    &__banner:hover &__banner-img {
+        scale: 1.1;
+    }
+
+    &__banner:hover::before {
+        height: 100%;
+    }
+
+    &__banner-wrapper {
+        width: 100%;
+        height: 100%;
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    &__banner-img {
+        width: 100%;
+        height: 100%;
+        transition: var(--transition-config);
+    }
+
+    &__banner-content {
+        padding: 50px;
+        position: absolute;
+        inset: 0;
+        color: var(--white-color);
+    }
+
+    &__banner-title {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        line-height: 1.56rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+    &__banner-heading {
+        font-size: 3.6rem;
+        line-height: 4.68rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    &__banner-desc {
+        line-height: 2.88rem;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__team {
+        padding: 52px 40px 56px;
+        --grid-gutter-x: 20px;
+
+        @include abstracts.screen(lg) {
+            padding: 26px 40px 28px;
+        }
+
+        @include abstracts.screen(md) {
+            padding: 26px 15px 28px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 13px 15px 14px;
+        }
+    }
+
+    &__team-item {
+        padding: 0 15px;
+
+        @include abstracts.screen(xl) {
+            padding: 0 10px;
+        }
+    }
+
+    &__team-title {
+        font-size: 4.8rem;
+        line-height: 6.24rem;
+        font-weight: 700;
+        margin-bottom: 50px;
+        text-align: center;
+
+        @include abstracts.screen(md) {
+            font-size: 3.2rem;
+            line-height: 4.16rem;
+            margin-bottom: 30px;
+        }
+    }
+
+    &__team-wrapper {
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    &__team-content {
+        padding-top: 30px;
+        text-align: center;
+    }
+
+    &__team-name {
+        margin: 0 0 8px;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: normal;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.6rem;
+        }
+    }
+
+    &__team-pos {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 400;
+        line-height: normal;
+        color: rgba($color: #000000, $alpha: 0.7);
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+        }
+    }
+}

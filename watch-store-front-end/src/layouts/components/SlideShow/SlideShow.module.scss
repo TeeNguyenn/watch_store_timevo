@@ -1,0 +1,177 @@
+@use '../../../styles/abstracts';
+@import '../../../styles/base/keyframe';
+
+.slide-show {
+    width: 100%;
+    height: 740px;
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    cursor: grab;
+    overflow: hidden;
+
+    @include abstracts.screen(xl) {
+        position: relative;
+    }
+
+    @include abstracts.screen(lg) {
+        height: 710px;
+    }
+
+    @include abstracts.screen(sm) {
+        height: 650px;
+    }
+
+    .slide-show__prev-btn,
+    .slide-show__next-btn {
+        top: initial;
+        bottom: 120px;
+        opacity: 1;
+        transform: none;
+        border-radius: 30px;
+        background: transparent;
+        color: var(--white-color);
+        border: 1px solid;
+        font-size: 1.2rem;
+        width: 100px;
+        height: 35px;
+        z-index: 5;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        transition: var(--transition-config);
+
+        @include abstracts.screen(md) {
+            bottom: 30px;
+        }
+
+        &::before {
+            display: none;
+        }
+
+        &:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white-color);
+        }
+    }
+
+    .slide-show__prev-btn {
+        left: 66px;
+        @include abstracts.screen(sm) {
+            left: 20px;
+        }
+    }
+
+    .slide-show__next-btn {
+        right: 66px;
+        @include abstracts.screen(sm) {
+            right: 20px;
+        }
+    }
+
+    .slide-show__btn-text {
+        font-size: 1.2rem;
+        line-height: normal;
+    }
+
+    &__img {
+        width: 100%;
+        max-width: 100%;
+        height: 740px;
+        object-fit: cover;
+        border-radius: 22px;
+
+        @include abstracts.screen(lg) {
+            height: 710px;
+        }
+
+        @include abstracts.screen(sm) {
+            height: 650px;
+        }
+    }
+
+    &__content-wrapper {
+        position: absolute;
+        top: 20%;
+        z-index: 9999;
+        background-color: transparent;
+        color: var(--white-color);
+
+        @include abstracts.screen(xl) {
+            width: 100%;
+        }
+
+        @include abstracts.screen(md) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            top: 0;
+        }
+    }
+
+    &__content {
+        padding: 120px 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @include abstracts.screen(md) {
+            padding: 30px 20px;
+            align-items: center;
+        }
+    }
+
+    &__heading {
+        font-size: 5.2rem;
+        margin-bottom: 8px;
+        line-height: 6.2rem;
+        opacity: 0;
+        transition: all 0.3s linear 0.6s;
+        text-transform: uppercase;
+
+        @include abstracts.screen(xl) {
+            font-size: 4.8rem;
+            line-height: 6.24rem;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 3.2rem;
+            line-height: 4.16rem;
+        }
+
+        @include abstracts.screen(sm) {
+            text-align: center;
+        }
+    }
+
+    &__text {
+        margin: 10px 0 20px;
+        opacity: 0;
+        transition: all 0.3s linear 0.6s;
+        line-height: 2.88rem;
+
+        @include abstracts.screen(md) {
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__btn {
+        margin-top: 20px;
+        padding: 0 33px;
+        height: 55px;
+        width: 158px;
+        opacity: 0;
+        transition: all 0.3s linear 0.6s;
+        transition: var(--transition-config);
+
+        &:hover {
+            color: var(--text-color);
+            background-color: var(--white-color);
+        }
+    }
+}

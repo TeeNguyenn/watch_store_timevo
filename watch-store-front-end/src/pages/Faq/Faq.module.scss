@@ -1,0 +1,35 @@
+@use '../../styles/abstracts';
+
+.faq {
+    width: var(--s-container-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    &__content {
+        padding: 0 40px 48px;
+
+        @include abstracts.screen(md) {
+            padding: 0 15px 36px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 0 15px 24px;
+        }
+    }
+
+    &__feature {
+        padding: 70px 40px 60px;
+
+        @include abstracts.screen(xl) {
+            padding: 36px 40px 30px;
+        }
+
+        @include abstracts.screen(md) {
+            padding: 36px 15px 30px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 18px 15px 15px;
+        }
+    }
+}

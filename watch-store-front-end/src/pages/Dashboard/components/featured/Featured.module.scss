@@ -1,0 +1,76 @@
+.featured {
+    flex: 2;
+    padding: 10px;
+    box-shadow: 2px 4px 10px 1px rgba($color: rgb(201, 201, 201), $alpha: 0.47);
+    border-radius: 10px;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+
+    &__bottom {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    &__chart {
+        width: 150px;
+        height: 150px;
+    }
+
+    &__label {
+        font-weight: 500;
+    }
+
+    &__amount {
+        font-size: 3rem;
+    }
+
+    &__desc {
+        font-weight: 300;
+        font-size: 1.2rem;
+        text-align: center;
+        color: var(--caption-color);
+    }
+
+    &__summary {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__item {
+        text-align: center;
+        &-title {
+            font-size: 1.4rem;
+        }
+
+        &-result {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 1.4rem;
+            gap: 2px;
+
+            &.positive {
+                color: green;
+            }
+
+            &.negative {
+                color: red;
+            }
+        }
+    }
+}

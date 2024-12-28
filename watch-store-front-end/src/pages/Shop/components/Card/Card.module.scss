@@ -1,0 +1,215 @@
+@use '../../../../styles/abstracts';
+
+.card {
+    transition: var(--transition-config);
+
+    &__horizontal {
+        transition: none;
+    }
+
+    &__inner {
+        background-color: var(--white-color);
+        border-radius: 22px;
+        text-align: center;
+        overflow: hidden;
+        height: 100%;
+        transition: var(--transition-config);
+
+        &.horizontal {
+            align-items: center;
+            --grid-gutter-x: 0;
+            --grid-gutter-y: 0;
+
+            .card__content {
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .card__caption {
+                margin-bottom: 10px;
+            }
+
+            .card__price-container {
+                margin: 0 0 10px;
+            }
+        }
+    }
+
+    &__inner:hover &__thumbnail {
+        transform: scale(1.1);
+    }
+
+    &__inner:hover &__product-icons {
+        opacity: 1;
+        visibility: visible;
+        bottom: 20px;
+    }
+
+    &__inner.wishlist:hover {
+        transform: translateY(-2px);
+    }
+
+    &__inner.wishlist:hover &__thumbnail {
+        transform: scale(1);
+    }
+
+    &__media {
+        overflow: hidden;
+    }
+
+    &__thumbnail-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 125%;
+        height: 0;
+        display: block;
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    &__thumbnail {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        transition: var(--transition-config);
+        // mix-blend-mode: multiply;
+        object-fit: contain;
+        padding: 8px;
+    }
+
+    &__close-btn {
+        width: 39px;
+        height: 39px;
+        padding: 0;
+        border-radius: 50%;
+        border: 1px solid;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+
+        @include abstracts.screen(md) {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    &__content {
+        padding: 20px;
+
+        @include abstracts.screen(sm) {
+            padding: 15px 10px;
+        }
+    }
+
+    &__caption {
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.44rem;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+    }
+
+    &__heading {
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 2.34rem;
+        color: var(--text-color);
+
+        &.modifier,
+        &.modifier-lg,
+        &.modifier-md {
+            height: 50px;
+        }
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 1.82rem;
+            height: auto !important;
+        }
+    }
+
+    &__colors {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        gap: 10px;
+    }
+
+    &__price-container {
+        margin: 15px 0 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+
+        // @include abstracts.screen(xxl) {
+        //     flex-direction: column;
+        // }
+    }
+
+    &__price-regular {
+        font-weight: 500;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__price-old {
+        color: var(--caption-color);
+        text-decoration: line-through;
+        font-size: 1.4rem;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.3rem;
+        }
+    }
+
+    &__review {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include abstracts.screen(sm) {
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+    }
+
+    &__stars {
+        display: flex;
+        align-items: center;
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        gap: 2px;
+    }
+
+    &__review-title {
+        line-height: 2.24rem;
+        margin-left: 6px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: normal;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

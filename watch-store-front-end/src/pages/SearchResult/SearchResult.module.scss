@@ -1,0 +1,243 @@
+@use '../../styles/abstracts';
+@import '../../styles/base/keyframe';
+
+.shop {
+    &__row {
+        padding-top: 20px;
+        padding-bottom: 60px;
+        --grid-gutter-x: 0;
+
+        @include abstracts.screen(xl) {
+            --grid-gutter-x: 30px;
+        }
+
+        @include abstracts.screen(lg) {
+            --grid-gutter-x: 0;
+        }
+    }
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: fit-content;
+}
+
+.product {
+    padding-left: 30px;
+    position: sticky;
+    top: 0;
+    height: fit-content;
+
+    @include abstracts.screen(xl) {
+        padding-left: 15px;
+    }
+
+    @include abstracts.screen(lg) {
+        --grid-gutter-x: 0;
+        padding-left: 0;
+    }
+
+    &__empty {
+        width: 100%;
+        margin: 40px 0 150px;
+        font-weight: 600;
+        line-height: normal;
+        font-size: 2rem;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    &__top {
+        margin-bottom: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include abstracts.screen(xl) {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__count-wrapper {
+        @include abstracts.screen(xl) {
+            width: 50%;
+        }
+    }
+
+    &__count {
+        color: rgba($color: #000000, $alpha: 0.7);
+        font-size: 1.6rem;
+        line-height: normal;
+        font-weight: 400;
+        font-family: var(--font-family);
+    }
+
+    &__show-options {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include abstracts.screen(xl) {
+            margin-left: auto;
+        }
+    }
+
+    &__show-option {
+        padding: 8px;
+        opacity: 1;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #797979;
+        position: relative;
+        background: var(--white-color);
+        border-radius: 7px;
+
+        &.active {
+            color: var(--text-color);
+        }
+
+        @include abstracts.screen(lg) {
+            min-width: 35px;
+            min-height: 35px;
+
+            & > * {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    &__list {
+        --grid-gutter-x: 20px;
+        --grid-gutter-y: 20px;
+
+        @include abstracts.screen(md) {
+            --grid-gutter-x: 10px;
+            --grid-gutter-y: 10px;
+        }
+    }
+}
+
+.sort {
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    &__label {
+        color: rgba($color: #000000, $alpha: 0.7);
+        line-height: 2.72rem;
+    }
+
+    &__title {
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        height: 36px;
+        min-width: 160px;
+        justify-content: space-between;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+
+    &__title-icon {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-left: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        rotate: -45deg;
+    }
+
+    &__options {
+        padding: 20px;
+        min-width: 230px;
+        width: 100%;
+        max-height: 550px;
+        overflow-y: auto;
+        border-radius: 10px;
+        background-color: var(--background-color);
+        box-shadow: 0px 6px 10px rgba($color: #000000, $alpha: 0.2);
+        display: flex;
+        flex-direction: column;
+        animation: animateMenuOpen 0.3s ease;
+        transition: var(--transition-config);
+    }
+
+    &__option {
+        cursor: pointer;
+
+        & + & {
+            padding-top: 12px;
+        }
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        color: var(--text-second-color);
+        font-weight: 500;
+        display: block;
+
+        &.active {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.search-result {
+    &__search {
+        padding: 80px 40px 50px;
+
+        @include abstracts.screen(md) {
+            padding: 60px 15px;
+        }
+    }
+
+    &__no-product {
+        margin: 16px 0;
+        line-height: 2.88rem;
+        text-align: center;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+}
+
+.recommend-product {
+    padding: 100px 0 60px;
+
+    @include abstracts.screen(md) {
+        padding: 75px 0 45px;
+    }
+    @include abstracts.screen(sm) {
+        padding: 50px 0 30px;
+    }
+
+    &__title {
+        margin-bottom: 60px;
+        font-size: 4.2rem;
+        font-weight: 700;
+        line-height: 5.46rem;
+
+        @include abstracts.screen(lg) {
+            margin-bottom: 30px;
+            font-size: 3rem;
+            line-height: 4.68rem;
+        }
+
+        @include abstracts.screen(lg) {
+            font-size: 2.4rem;
+            line-height: 3.12rem;
+        }
+    }
+}

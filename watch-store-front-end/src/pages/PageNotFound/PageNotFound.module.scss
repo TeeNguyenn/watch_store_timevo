@@ -1,0 +1,68 @@
+@use '../../styles/abstracts';
+
+
+.fullScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.page {
+    padding: 64px 0 60px;
+    text-align: center;
+
+    @include abstracts.screen(lg) {
+        padding: 48px 0 35px;
+    }
+}
+
+.sub-text {
+    font-size: 20rem;
+    line-height: 1;
+    font-weight: 700;
+    opacity: 0.6;
+
+    @include abstracts.screen(md) {
+        font-size: 14rem;
+    }
+}
+
+.title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 6.5rem;
+    text-transform: capitalize;
+
+    @include abstracts.screen(lg) {
+        font-size: 4rem;
+        line-height: 5.2rem;
+    }
+
+    @include abstracts.screen(md) {
+        font-size: 2rem;
+        line-height: 2.6rem;
+    }
+}
+
+.desc {
+    margin: 16px 0;
+    line-height: 2.88rem;
+
+    @include abstracts.screen(md) {
+        margin: 15px 0;
+        font-size: 1.5rem;
+        line-height: 2.7rem;
+    }
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 0 33px;
+    min-width: 92px;
+    min-height: 53px;
+
+    &:hover {
+        background-color: var(--text-color);
+    }
+}

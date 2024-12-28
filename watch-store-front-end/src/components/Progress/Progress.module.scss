@@ -1,0 +1,86 @@
+@use '../../styles/abstracts';
+
+@import '../../styles/base/keyframe';
+
+.progress {
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+
+        @include abstracts.screen(sm) {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__shipping {
+        color: var(--primary-color);
+    }
+
+    &__bar {
+        position: relative;
+        background: rgba(117, 82, 164, 0.2);
+        height: 7px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: auto;
+        width: 100%;
+        background-color: var(--primary-color);
+    }
+
+    &__line {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        position: relative;
+        margin: 0;
+        height: 7px;
+        transition: var(--transition-config);
+        width: 100%;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.2) 0,
+                rgba(255, 255, 255, 0.2) 25%,
+                rgba(255, 255, 255, 0) 25%,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                rgba(255, 255, 255, 0) 75%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            z-index: 1;
+            animation: move 5s linear infinite;
+            border-radius: 5px;
+            overflow: hidden;
+            background-size: 30px 30px;
+        }
+    }
+
+    &__icon-wrapper {
+        position: relative;
+    }
+
+    &__icon {
+        content: '';
+        width: 66px;
+        height: 55px;
+        display: block;
+        right: 0;
+        top: -44px;
+        bottom: -15px;
+        position: absolute;
+        z-index: 1;
+    }
+}

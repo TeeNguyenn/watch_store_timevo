@@ -1,0 +1,12 @@
+.chart {
+    flex: 4;
+    padding: 10px;
+    box-shadow: 2px 4px 10px 1px rgba($color: rgb(201, 201, 201), $alpha: 0.47);
+    border-radius: 10px;
+
+    &__title {
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 1.6rem;
+    }
+}

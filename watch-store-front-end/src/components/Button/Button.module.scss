@@ -1,0 +1,62 @@
+.wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 9px 16px;
+    // min-width: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+    // background-color: var(--white-color);
+    background-color: transparent;
+    border: 1px solid transparent;
+    user-select: none;
+    transition: var(--transition-config);
+
+    // & + & {
+    //     margin-left: 8px;
+    // }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// Button types
+
+.rounded {
+    border-radius: 999px;
+}
+
+.primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.outline {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: none;
+}
+
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Button sizes
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    min-width: 140px;
+    padding: 14px 16px;
+}

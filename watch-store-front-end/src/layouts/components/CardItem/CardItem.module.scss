@@ -1,0 +1,91 @@
+@use '../../../styles/abstracts';
+
+.card-item {
+    cursor: pointer;
+    padding: 0 10px;
+
+    @include abstracts.screen(md) {
+        padding: 0 5px;
+    }
+
+    &:hover &__img {
+        transform: scale(1.12);
+        // opacity: 0;
+    }
+
+    &:hover &__product-icons {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    &__img-link {
+        display: block;
+        overflow: hidden;
+        border-radius: 22px;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        background-color: var(--white-color);
+    }
+    &__img {
+        border-radius: 22px;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        object-fit: contain;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+
+        @include abstracts.screen(sm) {
+            padding: 15px 10px;
+        }
+    }
+
+    &__name {
+        display: block;
+        width: 100%;
+        font-size: 1.8rem;
+        line-height: 2.34rem;
+        text-align: center;
+        color: var(--text-color);
+        transition: var(--transition-config);
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 1.82rem;
+        }
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    &__price {
+        margin: 5px 0 0 !important;
+        & * {
+            font-size: 1.6rem !important;
+
+            font-weight: 500 !important;
+
+            @include abstracts.screen(sm) {
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+}
+
+.color-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}

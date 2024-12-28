@@ -1,0 +1,30 @@
+@use '../../../../styles/abstracts';
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+
+    @include abstracts.screen(xl) {
+        margin-bottom: 15px;
+    }
+
+    &__title {
+        @include abstracts.screen(md) {
+            font-size: 2.8rem !important;
+            line-height: 3.64rem !important;
+        }
+    }
+
+    &__desc {
+        max-width: 740px;
+        margin: 0 auto;
+        text-align: center;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem !important;
+            line-height: 2.7rem !important;
+        }
+    }
+}

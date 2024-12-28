@@ -1,0 +1,38 @@
+.mobile-menu {
+    &__filter-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px 0 40px;
+    }
+
+    &__filter-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    &__filter-item-wrapper {
+        margin: 0 15px 0 -5px;
+        padding: 10px;
+    }
+
+    &__filter-item {
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 1.4rem;
+        text-transform: capitalize;
+        border: 1px solid;
+        font-weight: 400;
+        box-shadow: 0 0 0 1px rgb(0, 0, 0, 0.2);
+    }
+
+    &__filter-remove-all {
+        font-size: 1.4rem;
+        line-height: 2.52rem;
+        padding: 0;
+        font-weight: 400;
+        margin-left: 12px;
+    }
+}

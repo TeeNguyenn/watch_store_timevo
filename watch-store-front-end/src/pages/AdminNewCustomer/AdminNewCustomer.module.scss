@@ -1,0 +1,178 @@
+@use '../../styles/abstracts';
+
+.new {
+    &__title {
+        font-size: 2rem;
+        color: var(--caption-color);
+
+        
+        @include abstracts.screen(md) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__top,
+    &__bottom {
+        box-shadow: 2px 4px 10px 1px
+            rgba($color: rgb(201, 201, 201), $alpha: 0.47);
+        border-radius: 5px;
+        margin: 20px 30px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+        
+        @include abstracts.screen(md) {
+            margin: 20px;
+        }
+    }
+
+    &__bottom {
+        // padding: 30px 30px 30px 0;
+        padding: 30px;
+
+        
+        @include abstracts.screen(lg) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+        }
+    }
+
+    &__left {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    &__avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+
+        @include abstracts.screen(xl) {
+            width: 100px;
+            height: 100px;
+        }
+
+        
+        
+        @include abstracts.screen(md) {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    &__right {
+        flex: 2;
+
+        
+        @include abstracts.screen(xl) {
+            flex: 3;
+        }
+    }
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    // justify-content: space-around;
+
+    &__input {
+        width: calc(50% - 15px);
+
+        
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
+
+        &:not(:first-child) label {
+            margin-bottom: 4px;
+        }
+
+        &:first-child label {
+            display: inline-flex !important;
+            cursor: pointer;
+            padding-right: 20px;
+        }
+
+        &:not(:first-child) input:focus {
+            border-color: var(--primary-second-color);
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            @include abstracts.screen(md) {
+                font-size: 1.4rem;
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: none;
+            outline: none;
+            border-bottom: 1.5px solid gray;
+            background-color: transparent;
+            transition: var(--transition-config);
+
+            &::placeholder {
+                font-size: 1.4rem;
+        
+            @include abstracts.screen(md) {
+                font-size: 1.2rem;
+            }
+            }
+        }
+    }
+
+    &__icon {
+        cursor: pointer;
+        width: 24px !important;
+        height: 24px !important;
+
+        
+        
+        @include abstracts.screen(md) {
+            width: 18px !important;
+            height: 18px !important;
+        }
+    }
+
+    &__btn {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        font-weight: 600;
+        margin: 10px auto 0px;
+
+        &:hover {
+            background-color: var(--primary-second-color);
+        }
+
+        
+        
+        @include abstracts.screen(md) {
+            font-size: 1.4rem;
+            width: 120px;
+        }
+    }
+
+    
+    &__error {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        gap: 6px;
+        color: crimson;
+    }
+}

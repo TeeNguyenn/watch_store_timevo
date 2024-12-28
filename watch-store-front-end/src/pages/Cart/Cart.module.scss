@@ -1,0 +1,671 @@
+@use '../../styles/abstracts';
+@import '../../styles/base/keyframe';
+
+.cart {
+    width: var(--s-container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 100px 40px;
+
+    @include abstracts.screen(xl) {
+        padding: 50px 40px;
+    }
+
+    @include abstracts.screen(md) {
+        padding: 50px 15px;
+        --grid-gutter-x: 0;
+    }
+
+    @include abstracts.screen(sm) {
+        padding: 25px 0;
+    }
+
+    &__container {
+        @include abstracts.screen(xl) {
+            width: 100%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: auto;
+        }
+    }
+
+    &__progress {
+        & > p {
+            margin-bottom: 36px;
+        }
+    }
+
+    &__title {
+        margin: 60px 0;
+        font-size: 4.2rem;
+        line-height: 5.46rem;
+        font-weight: 700;
+
+        @include abstracts.screen(md) {
+            font-size: 2.8rem;
+            line-height: 3.64rem;
+            text-align: center;
+        }
+    }
+
+    &__table-container {
+        overflow-x: auto;
+    }
+
+    &__list {
+        width: 100%;
+        padding-bottom: 40px;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+
+        & thead {
+            @include abstracts.screen(sm) {
+                width: 100% !important;
+            }
+        }
+
+        & thead tr th:first-child {
+            @include abstracts.screen(sm) {
+                width: 100% !important;
+                min-width: 100% !important;
+                text-align: center;
+            }
+        }
+
+        & tbody {
+            display: block;
+            max-height: 523px;
+            overflow-y: auto;
+            padding-right: 5px;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+            }
+            &::-webkit-scrollbar-thumb {
+                width: 5px;
+                height: 5px;
+                background-color: rgba($color: #000000, $alpha: 0);
+                transition: var(--transition-config);
+                border-radius: 10px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: rgba($color: #000000, $alpha: 0);
+                transition: var(--transition-config);
+            }
+
+            &:hover::-webkit-scrollbar-thumb {
+                background-color: #00000026;
+            }
+        }
+
+        & thead,
+        & tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+
+            @include abstracts.screen(xl) {
+                width: auto;
+            }
+        }
+
+        // 5px padding tbody
+        & thead {
+            width: calc(100% - 5px);
+
+            @include abstracts.screen(xl) {
+                width: auto;
+            }
+        }
+    }
+
+    &__heading {
+        text-transform: capitalize;
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+        padding-bottom: 8px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 2.16rem;
+
+        &:first-child {
+            text-align: left;
+
+            @include abstracts.screen(sm) {
+                text-align: center;
+            }
+        }
+
+        &:nth-child(2) {
+            text-align: left;
+        }
+    }
+
+    &__row-md {
+        & > div:first-child {
+            @include abstracts.screen(md) {
+                order: 1;
+            }
+        }
+    }
+
+    &__shopping-btn {
+        margin: 20px 0 50px;
+        padding: 0 33px;
+        height: 55px;
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+
+        @include abstracts.screen(md) {
+            margin-top: 0;
+        }
+    }
+
+    &__wrapper {
+        @include abstracts.screen(md) {
+            padding-top: 60px;
+        }
+    }
+
+    &__note-text {
+        font-weight: 500;
+        line-height: 2.88rem;
+        margin-bottom: 26px;
+        display: block;
+    }
+
+    &__note-area {
+        border-radius: 18px;
+        border: 1px solid rgba($color: #000000, $alpha: 0.2);
+        min-height: 160px;
+        padding: 30px 34px;
+        width: 100%;
+        resize: vertical;
+        background-color: transparent;
+        letter-spacing: 0.4px;
+        line-height: 2.4rem;
+        outline: none;
+        transform: var(--transition-config);
+
+        &::placeholder {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            font-family: var(--font-family);
+        }
+
+        &:focus {
+            border-color: var(--text-color);
+        }
+    }
+
+    &__estimate {
+        background-color: var(--white-color);
+        padding: 40px 30px;
+        border-radius: 18px;
+        margin-top: 20px;
+        height: calc(100% - 20px);
+        display: flex;
+        flex-direction: column;
+
+        @include abstracts.screen(md) {
+            margin-top: 50px;
+        }
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    &__total-text {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--caption-color);
+
+        & > svg {
+            color: inherit;
+        }
+    }
+
+    &__total {
+        font-size: 2.4rem;
+        line-height: 2.85rem;
+        font-weight: 500;
+    }
+
+    &__price {
+        font-size: 2.4rem;
+        line-height: 3.15rem;
+        font-weight: 600;
+    }
+
+    &__checkout-btn {
+        margin-top: auto;
+        width: 100%;
+        height: 53px;
+        transition: var(--transition-config);
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+    }
+
+    &__mobile-actions {
+        margin-top: 16px;
+        align-items: center;
+        gap: 15px;
+
+        > div {
+            width: 122px;
+        }
+    }
+
+    &__feature {
+        padding: 0 40px 76px;
+
+        @include abstracts.screen(xl) {
+            padding: 0 40px 38px;
+        }
+
+        @include abstracts.screen(md) {
+            padding: 0 15px 38px;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 0 0 19px;
+        }
+    }
+}
+
+.cart-item {
+    & > td {
+        padding-top: 40px;
+
+        @include abstracts.screen(sm) {
+            width: 100% !important;
+            min-width: 100% !important;
+            text-align: center;
+        }
+    }
+
+    &__product {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding-right: 18px;
+
+        @include abstracts.screen(lg) {
+            padding-right: 0;
+        }
+
+        @include abstracts.screen(sm) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__media {
+        width: 117px;
+        height: 131px;
+        display: block;
+
+        @include abstracts.screen(lg) {
+            width: 150px;
+            height: 200px;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        border-radius: 22px;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+    &__body {
+        flex: 1;
+
+        @include abstracts.screen(sm) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        line-height: 1.44rem;
+        font-weight: 500;
+        color: var(--caption-color);
+        text-transform: uppercase;
+    }
+
+    &__link {
+        display: block;
+        font-size: 2rem;
+        line-height: 2.6rem;
+        font-weight: 600;
+        color: var(--text-color);
+        margin-top: 8px;
+
+        @include abstracts.screen(md) {
+            margin-bottom: 8px;
+        }
+    }
+
+    &__variant {
+    }
+
+    &__variant-top {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        cursor: pointer;
+        user-select: none;
+        margin-bottom: 5px;
+
+        & > svg {
+            cursor: pointer;
+            color: var(--caption-color);
+        }
+
+        &.active > svg {
+            rotate: 180deg;
+        }
+    }
+
+    &__options {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__option {
+        position: relative;
+        margin-right: 15px;
+        line-height: 2.4rem;
+
+        &::after {
+            content: '/';
+            position: absolute;
+            right: -12px;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+    &__quantity {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+
+    &__price {
+        text-align: center;
+    }
+
+    &__price-text {
+        @include abstracts.screen(xl) {
+            margin-top: 8px;
+            line-height: 2.4rem;
+        }
+
+        & > div {
+            justify-content: center !important;
+            flex-direction: row-reverse;
+            gap: 10px !important;
+
+            @include abstracts.screen(lg) {
+                justify-content: flex-start !important;
+                flex-direction: row;
+                margin: 10px 0;
+            }
+        }
+
+        & * {
+            font-size: 1.6rem !important;
+            line-height: 1.92rem !important;
+        }
+    }
+
+    &__actions {
+        text-align: right;
+        & > div {
+            cursor: pointer;
+        }
+    }
+
+    &__total {
+        font-weight: 500;
+        position: relative;
+        text-align: center;
+
+        & > svg {
+            position: absolute;
+            // right: -10px;
+            right: 0;
+            top: 54%;
+            cursor: pointer;
+        }
+    }
+}
+
+// Cart is empty
+.cart-empty {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    @include abstracts.screen(xl) {
+        padding: 50px 0;
+    }
+
+    @include abstracts.screen(sm) {
+        padding: 25px 0;
+    }
+
+    &__title {
+        margin: 0 0 30px;
+        font-size: 4.2rem;
+        text-align: center;
+
+        @include abstracts.screen(lg) {
+            margin: 0 0 20px;
+            font-size: 2.8rem;
+            line-height: 3.64rem;
+        }
+    }
+
+    &__continue-btn {
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        border: none;
+        padding: 18px 26px;
+        font-weight: 700;
+        transition: var(--transition-config);
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+    }
+
+    &__label {
+        margin: 55px 0 5px;
+        font-size: 4.2rem;
+        font-weight: 700;
+        line-height: 5.46rem;
+
+        @include abstracts.screen(lg) {
+            font-size: 2.8rem;
+            line-height: 3.64rem;
+        }
+    }
+
+    &__text {
+        margin: 8px 0 16px;
+
+        @include abstracts.screen(lg) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__login {
+        color: var(--text-color);
+        text-decoration: underline;
+        transition: var(--transition-config);
+        font-weight: 500;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.variant {
+    &__container {
+        background-color: var(--white-color);
+        padding: 24px;
+        border-color: rgba(0, 0, 0, 0.09);
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.09);
+        border-radius: 2px;
+        width: 400px;
+        position: relative;
+        animation: animateMenuOpen 0.3s ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 48%;
+            width: 16px;
+            height: 16px;
+            transform: rotate(45deg);
+            border-top-left-radius: 2px;
+            background-color: var(--white-color);
+        }
+
+        @include abstracts.screen(lg) {
+            width: 300px;
+        }
+
+        @include abstracts.screen(sm) {
+            width: calc(100vw - 30px);
+        }
+    }
+
+    &__group {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        & + & {
+            margin-top: 24px;
+        }
+    }
+
+    &__label {
+        font-size: 1.6rem;
+        line-height: 1.92rem;
+        color: var(--caption-color);
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__select-btn {
+        padding: 4px 12px;
+        border: 1px solid rgba(0, 0, 0, 0.09);
+        border-radius: 2px;
+        font-weight: 400;
+        min-width: 80px;
+        min-height: 34px;
+
+        &:hover,
+        &.active {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__bottom {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__cancel-btn {
+        background-color: transparent;
+        color: #555;
+        font-weight: 400;
+        margin-right: 6px;
+        padding: 10px 0;
+        text-transform: uppercase;
+        width: 140px;
+
+        &:hover {
+            background-color: var(--background-color);
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 8px 0;
+        }
+    }
+
+    &__confirm-btn {
+        font-weight: 400;
+        padding: 10px 0;
+        text-transform: uppercase;
+        width: 140px;
+        border-radius: 2px;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.09);
+
+        &:hover {
+            opacity: 0.9;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+
+        @include abstracts.screen(sm) {
+            padding: 8px 0;
+        }
+    }
+}

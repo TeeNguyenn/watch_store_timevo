@@ -1,0 +1,58 @@
+.widget {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 10px;
+    box-shadow: 2px 4px 10px 1px rgba($color: rgb(201, 201, 201), $alpha: 0.47);
+    border-radius: 10px;
+    height: 130px;
+
+    &__left,
+    &__right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-weight: bold;
+        font-size: 1.4rem;
+        // color: var(--caption-color);
+    }
+
+    &__counter {
+        font-size: 2.8rem;
+        font-weight: 300;
+    }
+
+    &__link {
+        width: max-content;
+        font-size: 1.2rem;
+        border-bottom: 1px solid;
+        color: var(--text-color);
+    }
+
+    &__percentage {
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        cursor: pointer;
+        gap: 4px;
+
+        &.positive {
+            color: green;
+        }
+
+        &.negative {
+            color: red;
+        }
+    }
+
+    &__icon {
+        font-size: 2.5rem !important;
+        padding: 4px;
+        align-self: flex-end;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+}

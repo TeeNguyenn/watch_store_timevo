@@ -1,0 +1,454 @@
+@use '../../../styles/abstracts';
+@import '../../../styles/base/keyframe';
+
+.cart {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    width: 100vw;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all 0.3s linear;
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.active .content {
+        transform: translate(0);
+    }
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    transition: all 0.3s linear;
+}
+
+.content {
+    height: 100%;
+    width: 58.5rem;
+    max-width: calc(100vw - 3rem);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-right: 0;
+    background-color: var(--background-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translate(100%);
+    transition: transform 0.3s ease;
+    position: absolute;
+    z-index: 99;
+}
+
+// Cart is empty
+.cart-empty {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    &__close-btn {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+        transition: var(--transition-config);
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    &__title {
+        margin: 0 0 30px;
+        font-size: 4.2rem;
+
+        @include abstracts.screen(lg) {
+            margin: 0 0 20px;
+            font-size: 2.8rem;
+            line-height: 3.64rem;
+        }
+    }
+
+    &__continue-btn {
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        border: none;
+        padding: 18px 26px;
+        font-weight: 700;
+        transition: var(--transition-config);
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+    }
+
+    &__label {
+        margin: 55px 0 5px;
+        font-size: 3rem;
+        font-weight: 700;
+
+        @include abstracts.screen(lg) {
+            font-size: 2.4rem;
+            line-height: 3.12rem;
+        }
+    }
+
+    &__text {
+        margin: 8px 0 16px;
+
+        @include abstracts.screen(lg) {
+            font-size: 1.5rem;
+            line-height: 2.7rem;
+        }
+    }
+
+    &__login {
+        color: var(--text-color);
+        text-decoration: underline;
+        transition: var(--transition-config);
+        font-weight: 500;
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__header {
+        padding: 34px 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+
+        @include abstracts.screen(sm) {
+            padding: 20px;
+        }
+
+        &-title {
+            font-size: 3rem;
+            font-weight: 600;
+
+            @include abstracts.screen(sm) {
+                font-size: 2.4rem;
+                line-height: 3.12rem;
+            }
+        }
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: 45px;
+        right: 30px;
+        cursor: pointer;
+        transition: var(--transition-config);
+
+        @include abstracts.screen(sm) {
+            top: 24px;
+            right: 24px;
+        }
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    &__progress {
+        padding: 40px 40px 0;
+
+        @include abstracts.screen(sm) {
+            padding: 20px 20px 0;
+        }
+    }
+
+    &__cart-items {
+        flex: 1;
+        overflow: auto;
+    }
+
+    &__details {
+        border-top: 1px rgba(0, 0, 0, 0.2) solid;
+        border-bottom: 1px rgba(0, 0, 0, 0.2) solid;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px 0;
+    }
+
+    &__icon {
+        transition: var(--transition-config);
+        &:hover {
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+    }
+
+    &__total {
+        padding: 0 40px;
+        margin-top: 40px;
+
+        @include abstracts.screen(sm) {
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+    }
+
+    &__subtotal {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2.4rem;
+        font-weight: 500;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+    }
+
+    &__note {
+        font-size: 1.4rem;
+        margin-top: 16px;
+        color: rgba(0, 0, 0, 0.7);
+
+        @include abstracts.screen(sm) {
+            line-height: 2.1rem;
+        }
+    }
+
+    &__ctas {
+        padding: 18px 40px 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        @include abstracts.screen(sm) {
+            padding: 18px 20px 20px;
+        }
+    }
+
+    &__view-btn,
+    &__proceed-btn {
+        width: 100%;
+        padding: 17px 33px;
+        font-weight: 700;
+        background-color: var(--text-color);
+        line-height: 1.9rem;
+        transition: var(--transition-config);
+        color: var(--white-color);
+    }
+
+    &__view-btn {
+        border-color: transparent;
+
+        &:hover {
+            background-color: var(--primary-color);
+        }
+    }
+
+    &__proceed-btn {
+        margin-left: 0 !important;
+        background-color: var(--primary-color);
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+    }
+
+    &__footer {
+        flex-shrink: 0;
+    }
+}
+
+.cart-items {
+    &__inner {
+        padding: 30px 0;
+    }
+}
+
+.cart-item {
+    padding: 10px 40px;
+    display: flex;
+
+    @include abstracts.screen(sm) {
+        padding: 20px;
+        align-items: center;
+    }
+
+    &__img-link {
+        background-color: var(--white-color);
+        border-radius: 15px;
+        overflow: hidden;
+        @include abstracts.screen(sm) {
+            flex-shrink: 0;
+        }
+    }
+
+    &__img {
+        max-width: 100%;
+        height: 115px;
+        object-fit: contain;
+        width: 106px;
+
+        @include abstracts.screen(sm) {
+            width: 96px;
+            height: auto;
+        }
+    }
+
+    &__body {
+        position: relative;
+        margin: 0 18px;
+        flex: 1;
+
+        @include abstracts.screen(sm) {
+            margin: 0 0 0 10px;
+        }
+    }
+
+    &__caption {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--caption-color);
+        line-height: 1.4rem;
+        margin-bottom: 12px;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.2rem;
+            line-height: 1.44rem;
+            margin-bottom: 8px;
+        }
+    }
+
+    &__name {
+        font-size: 2rem;
+        color: var(--text-color);
+        font-weight: 600;
+        line-height: 2.6rem;
+        display: block;
+        padding-right: 4px;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.6rem;
+            line-height: 2.08rem;
+        }
+    }
+
+    &__options {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+
+        @include abstracts.screen(sm) {
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__option {
+        margin-right: 15px;
+        position: relative;
+        line-height: 2.1rem;
+
+        &:not(:last-child)::after {
+            content: '/';
+            position: absolute;
+            right: -12px;
+        }
+    }
+
+    &__quantity-wrapper {
+        display: flex;
+        position: relative;
+
+        @include abstracts.screen(sm) {
+            margin-top: 10px;
+        }
+    }
+
+    &__error {
+        margin-top: 13px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-shrink: 0;
+        opacity: 0;
+
+        @include abstracts.screen(sm) {
+            visibility: hidden;
+            display: none;
+        }
+
+        &.show {
+            opacity: 1;
+        }
+    }
+
+    &__error-text {
+        font-size: 1.15rem;
+    }
+
+    &__quantity {
+        position: absolute;
+        bottom: 8px;
+        right: -18px;
+        width: 110px;
+        height: 36px;
+
+        @include abstracts.screen(sm) {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &__remove-btn {
+        margin: 0;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #00000026;
+        padding: 0;
+        position: absolute;
+        top: 28px;
+        right: -22px;
+        transition: var(--transition-config);
+
+        @include abstracts.screen(sm) {
+            top: initial;
+            right: 30px;
+            bottom: 6px;
+        }
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    &__remove-icon {
+        @include abstracts.screen(sm) {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}

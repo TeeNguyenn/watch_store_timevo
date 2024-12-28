@@ -1,0 +1,61 @@
+// label
+.label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: normal;
+    cursor: text;
+}
+
+.success {
+    border-color: #90d67f;
+    color: #1c6c09;
+    background-color: rgb(217, 251, 208);
+}
+
+.warning {
+    border-color: rgb(96, 198, 255);
+    color: rgb(0, 85, 133);
+    background-color: rgb(199, 235, 255);
+}
+
+.pending {
+    border-color: rgb(255, 204, 133);
+    color: rgb(188, 56, 3);
+    background-color: rgb(255, 239, 202);
+}
+
+.processing {
+    border-color: #60C6FF;
+    color: #005585;
+    background-color: #C7EBFF;
+}
+
+.fail {
+    border-color: #f48270;
+    color: #b81800;
+    background-color: #ffe0d8;
+}
+
+.cancel {
+    border-color: rgb(203, 208, 221);
+    color: rgb(82, 91, 117);
+    background-color: rgb(239, 242, 246);
+}
+
+.unfulfilled {
+    border-color: rgb(244, 130, 112);
+    color: rgb(184, 24, 0);
+    background-color: rgb(255, 224, 219);
+}
+
+.label.modifier * {
+    font-size: 1.1rem !important;
+}

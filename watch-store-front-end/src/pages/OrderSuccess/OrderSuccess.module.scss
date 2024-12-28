@@ -1,0 +1,233 @@
+@use '../../styles/abstracts';
+
+.order {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+    @include abstracts.screen(sm) {
+        margin-top: 30px;
+    }
+
+    &__inner {
+        width: 700px;
+        max-width: 100%;
+        background-color: var(--white-color);
+        border-radius: 8px;
+    }
+
+    &__top {
+        border-radius: 8px 8px 0 0;
+        overflow: hidden;
+        padding: 16px 0;
+        background-image: url(../../assets/images/order-success.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        text-align: center;
+        color: var(--white-color);
+    }
+
+    &__title {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        font-weight: 600;
+    }
+
+    &__body {
+        padding: 30px;
+
+        @include abstracts.screen(sm) {
+            padding: 15px 10px;
+        }
+    }
+
+    &__text {
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e4e7ec;
+
+        @include abstracts.screen(sm) {
+            font-size: 1.4rem;
+            line-height: 2.1rem;
+        }
+    }
+
+    &__info-title {
+        line-height: 1.76rem;
+        font-weight: 700;
+        margin-bottom: 14px;
+        font-size: 1.6rem;
+    }
+
+    &__info-row {
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    &__info-label,
+    &__info-value {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+    }
+
+    &__info-label {
+        width: 30%;
+        color: rgb(51, 51, 51);
+    }
+
+    &__info-value {
+        font-weight: 700;
+        flex: 1;
+
+        @include abstracts.screen(sm) {
+            text-align: right;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+    }
+
+    &__products {
+        padding-top: 15px;
+        margin-top: 5px;
+        border-top: 1px solid #e4e7ec;
+    }
+
+    &__product-title {
+        margin-bottom: 20px;
+        font-weight: 700;
+        line-height: 2.4rem;
+        font-size: 1.6rem;
+    }
+
+    &__product-list {
+        margin-bottom: 15px;
+    }
+
+    &__product-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        & + & {
+            margin-top: 14px;
+        }
+    }
+
+    &__product-media {
+        width: 64px;
+        height: 64px;
+        border-radius: 5px;
+        border: 1px solid #dedede;
+        position: relative;
+    }
+
+    &__product-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        object-fit: contain;
+    }
+
+    &__product-quantity {
+        position: absolute;
+        top: -10px;
+        right: -5px;
+
+        width: 22px;
+        height: 22px;
+        background-color: #666;
+        color: var(--white-color);
+        border-radius: 50%;
+        padding: 0 7px;
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__product-content {
+        flex: 1;
+    }
+
+    &__product-name {
+        font-size: 1.5rem;
+        line-height: 1.5;
+    }
+
+    &__product-styles {
+        color: #666;
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+    }
+
+    &__product-price {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+    }
+
+    &__total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    &__total-label {
+        font-weight: 700;
+        line-height: 2.4rem;
+        font-size: 1.6rem;
+    }
+
+    &__total-price {
+        font-size: 1.8rem;
+        line-height: 1.5;
+        font-weight: 700;
+    }
+
+    &__btn-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    &__btn {
+        padding: 0 30px;
+        height: 40px;
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+        font-weight: 600;
+
+        &:hover {
+            background-color: var(--text-color);
+        }
+    }
+
+    &__subtotal {
+        padding-top: 15px;
+        margin-top: 5px;
+        border-top: 1px solid #e4e7ec;
+    }
+    &__shipping {
+        margin: 10px 0;
+    }
+
+    &__subtotal,
+    &__shipping {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__subtotal-label,
+    &__shipping-label,
+    &__subtotal-price,
+    &__shipping-price {
+        font-size: 1.4rem;
+        line-height: 2.1rem;
+        font-weight: 400;
+    }
+}

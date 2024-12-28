@@ -1,0 +1,185 @@
+@use '../../styles/abstracts';
+
+.input-box {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: box-shadow 0.1s ease;
+}
+
+.input {
+    background-color: transparent;
+    padding: 0 80px 0 30px;
+    height: 60px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    border-radius: 999px;
+    transition: var(--transition-config);
+    outline: none;
+
+    &:focus {
+        border: 1px solid rgba(0, 0, 0, 1);
+    }
+
+    &:not(:focus) ~ .reset-btn {
+        display: none;
+    }
+
+    &:hover ~ .reset-btn {
+        display: block;
+    }
+}
+
+.input-box .search-btn {
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    min-width: 0;
+    width: 59px;
+    padding: 0 14px 0 0;
+    transition: var(--transition-config);
+
+    &:hover {
+        color: var(--primary-color);
+    }
+}
+
+.input-box .reset-btn {
+    background-color: transparent;
+    min-width: 0;
+    height: 100%;
+    position: absolute;
+    right: 56px;
+    top: 0;
+    padding: 0 6px;
+
+    &:hover {
+        display: block;
+    }
+}
+
+.input-box .loading {
+    background-color: transparent;
+    min-width: 0;
+    height: 100%;
+    position: absolute;
+    right: 56px;
+    top: 0;
+    padding: 0 6px;
+    animation: spinner 1s linear infinite;
+    transition: var(--transition-config);
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.search-result {
+    display: block;
+    width: calc(47vw);
+    background-color: var(--white-color);
+    border-radius: 10px;
+    transition: var(--transition-config);
+    box-shadow: 0 6px 10px rgba($color: #000000, $alpha: 0.2);
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+
+    @include abstracts.screen(xl) {
+        width: calc(72vw);
+    }
+
+    @include abstracts.screen(md) {
+        width: calc(76vw);
+    }
+
+    @include abstracts.screen(sm) {
+        min-width: initial;
+        width: calc(100% - 30px);
+    }
+
+    &__title {
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0.08);
+        padding: 16px 0 8px;
+        width: calc(100% - 40px);
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+        margin: 12px 0 0;
+
+        @include abstracts.screen(md) {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__list {
+        margin: 16px 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: var(--text-color);
+        font-family: var(--font-family);
+        padding: 10px 0;
+
+        @include abstracts.screen(sm) {
+            align-items: flex-start;
+        }
+    }
+
+    &__item:hover &__name {
+        color: var(--primary-color);
+    }
+
+    &__img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+
+        @include abstracts.screen(sm) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__name {
+        text-align: left;
+        font-size: 1.8rem;
+        transition: var(--transition-config);
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
+
+        @include abstracts.screen(sm) {
+            text-align: left;
+        }
+    }
+
+    &__price {
+        margin: 10px 0 0 !important;
+        gap: 10px !important;
+
+        & * {
+            font-size: 1.4rem !important;
+
+            color: var(--caption-color);
+
+            @include abstracts.screen(md) {
+                font-size: 1.2rem !important;
+            }
+        }
+    }
+}

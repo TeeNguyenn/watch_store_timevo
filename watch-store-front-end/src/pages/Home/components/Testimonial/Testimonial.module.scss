@@ -1,0 +1,87 @@
+@use '../../../../styles/abstracts';
+
+.testimonial {
+    padding: 72px 40px;
+
+    @include abstracts.screen(xl) {
+        padding: 36px 40px;
+    }
+
+    @include abstracts.screen(md) {
+        padding: 36px 15px;
+    }
+
+    @include abstracts.screen(sm) {
+        padding: 18px 15px;
+    }
+
+    &__heading {
+        @include abstracts.screen(xl) {
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.testimonial-item {
+    padding: 50px 0;
+    border-radius: 30px;
+    height: 100%;
+    background-color: var(--white-color);
+    text-align: center;
+
+    &__img-wrapper {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        animation: ZoomInImage 5s;
+        transition: 5s;
+    }
+
+    &__group {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        line-height: 2.88rem;
+        font-style: italic;
+
+        @include abstracts.screen(md) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__author {
+        font-weight: 600;
+    }
+
+    &__body {
+        padding: 10px 30px 0;
+        transition: var(--transition-config);
+    }
+
+    &__stars {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        color: #fec42d;
+        font-size: 1.4rem;
+        height: 25px;
+        line-height: 1.4rem;
+    }
+
+    &__content {
+        margin: 18px 0;
+        line-height: 3.4rem;
+        font-size: 1.8rem;
+        color: rgba($color: #000000, $alpha: 0.75);
+    }
+}

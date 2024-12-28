@@ -1,0 +1,110 @@
+// Adding custom animations aos
+[data-aos='fade-in-up'] {
+    opacity: 0;
+    transform: translate3d(0, 20%, 0);
+
+    &.aos-animate {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    45% {
+        transform: scale(1.75);
+        opacity: 0;
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1.1);
+    }
+    20% {
+        transform: scale(1.05);
+    }
+    40% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    80% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -60px -60px;
+    }
+}
+
+@keyframes LoginZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
+@keyframes FadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -10%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes animateMenuOpen {
+    0% {
+        opacity: 0;
+        transform: translateY(-1.5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ZoomInImage {
+    0% {
+        transform: scaleZ(1);
+        transition: 5s;
+    }
+
+    50% {
+        transform: scale3d(1.03, 1.03, 1.03);
+        transition: 5s;
+    }
+    100% {
+        transform: scaleZ(1);
+        transition: 5s;
+    }
+}
